@@ -1,16 +1,24 @@
 {
 	"name": "flutter-vue2-channel-sdk",
 	"description": "flutter和vue2.x交互插件",
-	"version": "1.0.0",
-	"author": "zwb <xxx@gmail.com>",
+	"version": "1.0.3",
+	"author": "jq-flutter-vue jq",
 	"license": "MIT",
 	"main": "src/flutter-channel-sdk.js",
+	"homepage": "https://github.com/jq-vue/flutter-vue-channel-sdk#readme",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jq-vue/flutter-vue-channel-sdk.git"
+	  },
 	"files": [
 		"src"
 	],
 	"keywords": [
 		"flutter-vue-channel-sdk"
 	],
+	"engines": {
+		"node": ">= 14"
+	  },
 	"private": false,
 	"scripts": {
 		"serve": "export NODE_OPTIONS=--openssl-legacy-provider &&  vue-cli-service serve",

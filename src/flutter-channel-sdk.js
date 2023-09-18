@@ -1,17 +1,15 @@
 'use strict';
-/**
-* SDK:和FlutterAPP交互SDK
-* Author: zwb
-* Date: 2023-07-18
-*/
+
 import Vue from 'vue'
 Vue.prototype.$eventBus = new Vue()  
 import{ChannelRequestQuery} from './flutter-channel-enum'
 import{checkIsAppOpen,valueEmpty}from './flutter-channel-util'
+var  _openAppCheck = true
 // 初始化SDK
-function initFlutterChannel(handleChannelCallback){
-	if(!checkIsAppOpen()){
-		alert('SDK初始化失败,请在APP内使用！')
+function initFlutterChannel(handleChannelCallback,openAppCheck = true){
+	_openAppCheck = openAppCheck
+	if(!checkIsAppOpen() && _openAppCheck){
+		alert('SDK初始化失败,请在APP内使用!')
 	}else{
 		window.messageFlutterToWebChannel = _messageFlutterToWebChannel
 		_handleWebFlutterEvent(handleChannelCallback)
@@ -20,12 +18,12 @@ function initFlutterChannel(handleChannelCallback){
 }
 
 // 向flutter交互
-function messageWebToFlutterChannel({ channelApi = '', channelArgument = '', data = '' }) { 
-	if(!checkIsAppOpen()){
-		alert('SDK初始化失败,请在APP内使用！')
+function messageWebToFlutterChannel({ channelApi = '', channelArgument = '', data = ''}) { 
+	if(!checkIsAppOpen() && _openAppCheck == true){
+		alert('SDK初始化失败,请在APP内使用!')
 	}else{
 		if (!valueEmpty(channelApi)) {
-			alert('channelType不能为空');
+			alert('channelApi不能为空');
 		} else {
 			try { 
 				ChannelRequestQuery.channelApi = channelApi

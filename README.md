@@ -1,6 +1,5 @@
 # web和flutter交互
 
-> WEB使用API 需要在APP内访问
 
 ## 使用
 
@@ -8,7 +7,7 @@
 
 ```javascript
 // 安装插件
-npm i flutter-vue2x-channel-sdk --save
+npm i flutter-vue2-channel-sdk --save
 
 // 导入函数
 import { 
@@ -59,9 +58,12 @@ handleFlutterCallback: function(callback) {
 ```
 
 ## 字段描述
+
 | 字段 | 描述 |
 | ---- | ---- |
 | channelApi | flutter的接口 |
 | channelArgument| flutter接口参数 |
 | data| 自定义参数 |
 | request | model标识符 |
+
+ ` openAppCheck `设置为` true `时，flutter端的` userAgent `需要添加` flutter-mini-webview-plugin ` 用于SDK检测API是否在APP内运行

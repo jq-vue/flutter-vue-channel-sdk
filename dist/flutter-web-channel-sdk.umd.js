@@ -163,19 +163,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _flutter_channel_util__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("e8d1");
 
 
-/**
-* SDK:和FlutterAPP交互SDK
-* Author: zwb
-* Date: 2023-07-18
-*/
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.prototype.$eventBus = new vue__WEBPACK_IMPORTED_MODULE_0___default.a();
 
 
+var _openAppCheck = true;
 // 初始化SDK
-function initFlutterChannel(handleChannelCallback) {
-  if (!Object(_flutter_channel_util__WEBPACK_IMPORTED_MODULE_2__["checkIsAppOpen"])()) {
-    alert('SDK初始化失败,请在APP内使用！');
+function initFlutterChannel(handleChannelCallback, openAppCheck = true) {
+  _openAppCheck = openAppCheck;
+  if (!Object(_flutter_channel_util__WEBPACK_IMPORTED_MODULE_2__["checkIsAppOpen"])() && _openAppCheck) {
+    alert('SDK初始化失败,请在APP内使用!');
   } else {
     window.messageFlutterToWebChannel = _messageFlutterToWebChannel;
     _handleWebFlutterEvent(handleChannelCallback);
@@ -189,11 +186,11 @@ function messageWebToFlutterChannel({
   channelArgument = '',
   data = ''
 }) {
-  if (!Object(_flutter_channel_util__WEBPACK_IMPORTED_MODULE_2__["checkIsAppOpen"])()) {
-    alert('SDK初始化失败,请在APP内使用！');
+  if (!Object(_flutter_channel_util__WEBPACK_IMPORTED_MODULE_2__["checkIsAppOpen"])() && _openAppCheck == true) {
+    alert('SDK初始化失败,请在APP内使用!');
   } else {
     if (!Object(_flutter_channel_util__WEBPACK_IMPORTED_MODULE_2__["valueEmpty"])(channelApi)) {
-      alert('channelType不能为空');
+      alert('channelApi不能为空');
     } else {
       try {
         _flutter_channel_enum__WEBPACK_IMPORTED_MODULE_1__["ChannelRequestQuery"].channelApi = channelApi;
