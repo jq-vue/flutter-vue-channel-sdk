@@ -1,0 +1,29 @@
+{
+	"name": "flutter-vue2-channel-sdk",
+	"description": "flutter和vue2.x交互插件",
+	"version": "1.0.0",
+	"author": "zwb <xxx@gmail.com>",
+	"license": "MIT",
+	"main": "src/flutter-channel-sdk.js",
+	"files": [
+		"src"
+	],
+	"keywords": [
+		"flutter-vue-channel-sdk"
+	],
+	"private": false,
+	"scripts": {
+		"serve": "export NODE_OPTIONS=--openssl-legacy-provider &&  vue-cli-service serve",
+		"build": "export NODE_OPTIONS=--openssl-legacy-provider &&  vue-cli-service build",
+		"lib": "export NODE_OPTIONS=--openssl-legacy-provider &&  vue-cli-service build --target lib --name flutter-web-channel-sdk --dist lib src/index.js"
+	},
+	"dependencies": {
+		"core-js": "^2.6.5",
+		"vue": "^2.6.10"
+	},
+	"devDependencies": {
+		"@vue/cli-plugin-babel": "^4.4.6",
+		"@vue/cli-service": "^4.4.6",
+		"vue-template-compiler": "^2.6.10"
+	}
+}

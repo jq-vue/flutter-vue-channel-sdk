@@ -1,16 +1,16 @@
-# web和flutter交互
+# web and flutter mutual
 
-> WEB使用API 需要在APP内访问
+> WEB USE API , APP Inner Run
 
-## 使用
+## use
 
-> 1.导包
+> 1.use package
 
 ```javascript
-// 安装插件
+// install
 npm i flutter-vue2x-channel-sdk --save
 
-// 导入函数
+// import
 import { 
   initFlutterChannel,
   messageWebToFlutterChannel,
@@ -18,23 +18,23 @@ import {
 } from "flutter-vue-channel-sdk/flutter-channel-sdk"
 ```
 
-> 2.初始化插件
+> 2.init plugin
 
 ```javascript  
-// 2.1 created或mounted中初始化
+// 2.1 init
 created() { 
    initFlutterChannel(this.handleFlutterCallback)
 }  
 
-// 2.2 methods中定义回调
+// 2.2 callback
 methods: {    
  handleFlutterCallback: function(callback) {
-  console.log('flutter-sdk-监听器 => ' + callback);
+  console.log('flutter-sdk-callback => ' + callback);
  },
 }
 ```
 
-> 3.向Flutter发起交互
+> 3.Flutter To Web mutual
 
 ```javascript  
 messageWebToFlutterChannel(
@@ -45,23 +45,23 @@ messageWebToFlutterChannel(
 )
 ```
 
-> 4.接收Flutter交互
+> 4.Flutter Callback
 
 ```javascript
 handleFlutterCallback: function(callback) { 
   if(callback.request === ChannelRequest.webRequest) { 
-   ...web发起请求的回调
+   ...web request
   }
   if (callback.request === ChannelRequest.flutterResponse){
-   ...来自flutter的请求或响应
+   ...flutter response
   }
  },
 ```
 
-## 字段描述
-| 字段 | 描述 |
+## field desc
+| field | desc |
 | ---- | ---- |
-| channelApi | flutter的接口 |
-| channelArgument| flutter接口参数 |
-| data| 自定义参数 |
-| request | model标识符 |
+| channelApi | flutter api name |
+| channelArgument| api argument |
+| data| undfind |
+| request | request platfomat |
