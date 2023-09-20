@@ -1,7 +1,7 @@
 {
 	"name": "flutter-vue2-channel-sdk",
 	"description": "flutter和vue2.x交互插件",
-	"version": "1.0.3",
+	"version": "1.0.5",
 	"author": "jq-flutter-vue jq",
 	"license": "MIT",
 	"main": "src/flutter-channel-sdk.js",

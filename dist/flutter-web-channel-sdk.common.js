@@ -190,7 +190,10 @@ function messageWebToFlutterChannel({
         var json = JSON.stringify(_flutter_channel_enum__WEBPACK_IMPORTED_MODULE_1__["ChannelRequestQuery"]);
         webMessageToFlutter.postMessage(json, '*');
         console.log('flutter-web-channel-sdk交互了flutter：', _flutter_channel_enum__WEBPACK_IMPORTED_MODULE_1__["ChannelRequestQuery"]);
-        _respEvent(_flutter_channel_enum__WEBPACK_IMPORTED_MODULE_1__["ChannelRequestQuery"]);
+        _respEvent({
+          request: _flutter_channel_enum__WEBPACK_IMPORTED_MODULE_1__["ChannelRequestQuery"],
+          response: undefined
+        });
       } catch (error) {
         console.log('flutter-web-channel-sdk和APP交互出错：', error);
         alert('和APP交互出错,请检查参数！');
@@ -202,7 +205,10 @@ function messageWebToFlutterChannel({
 // flutter向web交互
 function _messageFlutterToWebChannel(flutterData) {
   console.log('flutter-web-channel-sdk收到flutter交互', flutterData);
-  _respEvent(flutterData);
+  _respEvent({
+    request: undefined,
+    response: flutterData
+  });
 }
 
 // 响应 
@@ -224,9 +230,9 @@ var sdk = __webpack_require__("a72a");
 var fUtil = __webpack_require__("e8d1");
 var fEnum = __webpack_require__("0b14");
 module.exports = {
-  flutterSdk: sdk,
-  flutterUtil: fUtil,
-  flutterEnum: fEnum
+  sdk,
+  fUtil,
+  fEnum
 };
 
 /***/ }),

@@ -32,7 +32,10 @@ function messageWebToFlutterChannel({ channelApi = '', channelArgument = '', dat
 				var json = JSON.stringify(ChannelRequestQuery) 
 				webMessageToFlutter.postMessage(json,'*')
 				console.log('flutter-web-channel-sdk交互了flutter：',ChannelRequestQuery)
-				_respEvent(ChannelRequestQuery)
+				_respEvent({
+					request: ChannelRequestQuery,
+					response: undefined,
+				})
 			} catch (error) {
 				console.log('flutter-web-channel-sdk和APP交互出错：',error)
 				alert('和APP交互出错,请检查参数！');
@@ -44,7 +47,10 @@ function messageWebToFlutterChannel({ channelApi = '', channelArgument = '', dat
 // flutter向web交互
 function _messageFlutterToWebChannel(flutterData) {
 	console.log('flutter-web-channel-sdk收到flutter交互',flutterData)   
-	_respEvent(flutterData)
+	_respEvent({
+		request: undefined,
+		response: flutterData,
+	})
 }
 
 // 响应 
